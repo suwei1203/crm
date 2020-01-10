@@ -34,6 +34,11 @@ public class SaleChancerController {
 		return saleChanceService.updateSaleChance(saleChance);
 	}
 	
+	@RequestMapping("/delSaleChance")
+	public int delSaleChance(@RequestBody SaleChance saleChance) {
+		return saleChanceService.delSaleChance(saleChance);
+	}
+	
 	
 	
 }
