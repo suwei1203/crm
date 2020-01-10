@@ -1,5 +1,7 @@
 package com.neusoft.service.salesw.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,11 @@ public class SaleChanceServiceImpl implements SaleChanceService  {
 	@Override
 	public int delSaleChance(SaleChance saleChance) {
 		return saleChanceMapper.delSaleChance(saleChance);
+	}
+	
+	@Override
+	public List<SaleChance> selectSaleChancePaging(SaleChance saleChance){
+		return saleChanceMapper.selectSaleChancePaging(saleChance);
 	}
 	
 	
