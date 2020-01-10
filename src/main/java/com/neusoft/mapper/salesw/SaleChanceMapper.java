@@ -1,0 +1,18 @@
+package com.neusoft.mapper.salesw;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import com.neusoft.entity.SaleChance;
+
+@Mapper
+public interface SaleChanceMapper {
+	
+	public int insertSaleChance(SaleChance saleChance);
+	
+	@Select("select count(*) from  saleChance")
+	public int selectSaleChanceCount();
+	
+	@Select("select * from  saleChance where chanceId= ")
+	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance);
+}
