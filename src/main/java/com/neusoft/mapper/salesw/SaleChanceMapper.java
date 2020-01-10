@@ -1,5 +1,7 @@
 package com.neusoft.mapper.salesw;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -21,4 +23,6 @@ public interface SaleChanceMapper {
 	
 	@Delete("delete from saleChance where chanceId=#{chanceId}")
 	public int delSaleChance(SaleChance saleChance);
+	
+	public List<SaleChance> selectSaleChancePaging(SaleChance saleChance);
 }
