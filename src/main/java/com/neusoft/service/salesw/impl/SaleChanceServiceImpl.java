@@ -22,5 +22,19 @@ public class SaleChanceServiceImpl implements SaleChanceService  {
 	public int selectSaleChanceCount() {
 		return saleChanceMapper.selectSaleChanceCount();
 	}
+	
+	@Override
+	public int updateSaleChance(SaleChance saleChance) {
+		return saleChanceMapper.updateSaleChance(saleChance);
+	}
+	
+	@Override
+	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance) {
+		return saleChanceMapper.selectSaleChanceCountByChanceId(saleChance);
+	}
+	
+	
+	
+	
 
 }
