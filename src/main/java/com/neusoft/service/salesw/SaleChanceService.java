@@ -11,4 +11,6 @@ public interface SaleChanceService {
 	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance);
 	
 	public int updateSaleChance(SaleChance saleChance);
+	
+	public int delSaleChance(SaleChance saleChance);
 }
