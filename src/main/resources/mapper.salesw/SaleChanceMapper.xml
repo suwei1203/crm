@@ -3,7 +3,22 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.mapper.salesw.SaleChanceMapper">
 	<insert id="insertSaleChance" parameterType="SaleChance">
-		insert into saleChance values(null,#{chanceSource},#{chanceCustName},#{chanceTitle},#{chanceRate},#{chanceLinkman},#{chanceTel},#{chanceDesc},#{chanceCreateId},#{chanceCreateDate},null,null,0)
+		insert into saleChance 
+		values(null,#{chanceSource},#{chanceCustName},#{chanceTitle},#{chanceRate},
+		#{chanceLinkman},#{chanceTel},#{chanceDesc},#{chanceCreateId},
+		#{chanceCreateDate},null,null,0)
 	</insert>
+	
+	<update id="updateSaleChance" parameterType="SaleChance">
+		update saleChance 
+		set chanceSource=#{chanceSource},
+			chanceCustName=#{chanceCustName},
+			chanceTitle=#{chanceTitle},
+			chanceRate=#{chanceRate},
+			chanceLinkman=#{chanceLinkman},
+			chanceTel=#{chanceTel},
+			chanceDesc=#{chanceDesc}
+		where chanceId=#{chanceId}			
+	</update>
 </mapper>
    
