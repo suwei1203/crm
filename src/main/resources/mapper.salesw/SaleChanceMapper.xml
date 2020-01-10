@@ -20,5 +20,9 @@
 			chanceDesc=#{chanceDesc}
 		where chanceId=#{chanceId}			
 	</update>
+	
+	<select id="selectSaleChancePaging" parameterType="SaleChance" resultType="SaleChance">
+		select * from saleChance limit #{beginNum},#{maxPageNum}
+	</select>
 </mapper>
    
