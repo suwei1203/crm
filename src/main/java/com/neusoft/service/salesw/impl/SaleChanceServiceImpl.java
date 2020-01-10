@@ -33,6 +33,11 @@ public class SaleChanceServiceImpl implements SaleChanceService  {
 		return saleChanceMapper.selectSaleChanceCountByChanceId(saleChance);
 	}
 	
+	@Override
+	public int delSaleChance(SaleChance saleChance) {
+		return saleChanceMapper.delSaleChance(saleChance);
+	}
+	
 	
 	
 	
