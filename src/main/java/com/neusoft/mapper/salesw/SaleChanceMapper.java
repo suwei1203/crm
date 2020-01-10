@@ -13,6 +13,8 @@ public interface SaleChanceMapper {
 	@Select("select count(*) from  saleChance")
 	public int selectSaleChanceCount();
 	
-	@Select("select * from  saleChance where chanceId= ")
+	@Select("select * from  saleChance where chanceId=#{chanceId}")
 	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance);
+	
+	public int updateSaleChance(SaleChance saleChance);
 }
