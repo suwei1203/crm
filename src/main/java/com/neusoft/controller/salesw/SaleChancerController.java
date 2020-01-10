@@ -23,4 +23,17 @@ public class SaleChancerController {
 	public int selectSaleChanceCount() {
 		return saleChanceService.selectSaleChanceCount();
 	}
+		
+	@RequestMapping("/selectSaleChanceCountByChanceId")
+	public SaleChance selectSaleChanceCountByChanceId(@RequestBody SaleChance saleChance) {
+		return saleChanceService.selectSaleChanceCountByChanceId(saleChance);
+	}
+	
+	@RequestMapping("/updateSaleChance")
+	public int updateSaleChance(@RequestBody SaleChance saleChance) {
+		return saleChanceService.updateSaleChance(saleChance);
+	}
+	
+	
+	
 }
