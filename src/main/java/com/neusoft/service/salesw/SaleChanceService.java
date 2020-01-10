@@ -6,5 +6,9 @@ public interface SaleChanceService {
 	
 	public int insertSaleChance(SaleChance saleChance);
 	
-	public int selectSaleChanceCount();
+	public int selectSaleChanceCount();	
+	
+	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance);
+	
+	public int updateSaleChance(SaleChance saleChance);
 }
