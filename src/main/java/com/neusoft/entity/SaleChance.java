@@ -15,7 +15,9 @@ public class SaleChance {
 	private Integer chanceDueId;
 	private String chanceDueDate;
 	private Integer chanceStatus;
-	
+	private Integer beginNum;
+	private Integer maxPageNum;
+		
 	public Integer getChanceId() {
 		return chanceId;
 	}
@@ -93,6 +95,18 @@ public class SaleChance {
 	}
 	public void setChanceStatus(Integer chanceStatus) {
 		this.chanceStatus = chanceStatus;
+	}
+	public Integer getBeginNum() {
+		return beginNum;
+	}
+	public Integer getMaxPageNum() {
+		return maxPageNum;
+	}
+	public void setBeginNum(Integer beginNum) {
+		this.beginNum = beginNum;
+	}
+	public void setMaxPageNum(Integer maxPageNum) {
+		this.maxPageNum = maxPageNum;
 	}
 	
 	
