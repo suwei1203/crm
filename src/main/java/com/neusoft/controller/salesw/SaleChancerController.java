@@ -1,5 +1,7 @@
 package com.neusoft.controller.salesw;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +41,10 @@ public class SaleChancerController {
 		return saleChanceService.delSaleChance(saleChance);
 	}
 	
+	@RequestMapping("/selectSaleChancePaging")
+	public List<SaleChance> selectSaleChancePaging(@RequestBody SaleChance saleChance){
+		return saleChanceService.selectSaleChancePaging(saleChance);
+	}
 	
 	
 	
