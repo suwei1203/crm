@@ -3,138 +3,46 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.neusoft.mapper.clientsMapper">
 
-	<cache />
+	
 
-	<!-- insert、update、delete返回值固定为int，所以resultType不用写 -->
-	<insert id="insertClientServer" parameterType="ClientServer">
+	<!--服务创建界面需要的操作-->
+	<insert id="insertData" parameterType="ClientServer">
 		insert into clientserver (serverTitle,clientCode,serverTypeId,serverCreateId,serverContent,serverCreateDate,serverStatus) values(#{serverTitle},#{clientCode},#{serverTypeId},#{serverCreateId},#{serverContent},#{serverCreatDate},1)
 	</insert>
+	
+    <!--显示分配、处理、反馈、归档界面时要用到的查询-->
+	<select id="selectUndistributed" resultMap="ClientServer" parameterType="int">
+	    select * from clientserver where serverstatus=#{serverStatus}
+    </select>
+    <select id="selectUndistributedByConditions" resultMap="ClientServer" parameterType="String,String,int,int">
+	    select * from clientserver 
+	    <where>
+	        <if test="clientCode!=null">and clientCode=#{clientCode}</if>
+	        <if test="serverTitle!=null">and serverTitle=#{serverTitle}</if>
+	        <if test="serverTypeId!=null">and serverTypeId=#{serverTypeId}</if>
+	        <if test="true">and clientCode=#{serverStatus}</if>
+	    </where>
+    </select>
+    <!--服务分配界面需要的操作-->
+    <update id="updateDue" parameterType="int,String,int">
+        update clientserver set serverdueid=#{serverDueId},serverduedate=#{serverDueDate}，serverStatus=2 where serverid=#{serverId}
+    </update>
+    <delete id="deleteByserverId" parameterType="int">
+        delete from clientserver where serverid=#{serverId}
+    </delete>
+	<!--服务处理界面需要的操作-->	
+	<update id="updateProcessing" parameterType="String,String,int">
+        update clientserver set serverprocessing=#{serverProcessing},processingdate=#{processingDate}，serverstatus=3 where serverid=#{serverId}
+    </update>
+    <!--服务反馈界面需要的操作-->	
+    <update id="updateFeedback" parameterType="String,int,int">
+        update clientserver set processingresult=#{processingResult},clientcontentment=#{clientContentment}，serverstatus=4 where serverid=#{serverId}
+    </update>
+    <!--服务归档界面需要的操作-->	
+    <select id="selectByServerId" resultMap="ClientServer" parameterType="int">
+	    select * from clientserver where serverid=#{serverId}
+    </select>
 
-	<!-- 这个插入会返回生成的主键（这里写的是mysql的写法） -->
-	<!-- <insert id="insertEmp" parameterType="emp"> <selectKey keyProperty="empno" 
-		resultType="int" order="AFTER"> select LAST_INSERT_ID() </selectKey> insert 
-		into emp(ename,job,hiredate,sal,deptno) values(#{ename},#{job},#{hiredate},#{sal},#{deptno}) 
-		</insert> -->
-
-	<update id="updateEmp" parameterType="emp">
-		update emp set
-		ename=#{ename},job=#{job},hiredate=#{hiredate},sal=#{sal},deptno=#{deptno}
-		where empno=#{empno}
-	</update>
-
-	<delete id="deleteEmp" parameterType="int">
-		delete from emp where empno=#{empno}
-	</delete>
-
-	<select id="selectEmpAll" resultType="emp">
-		select * from emp order by empno
-	</select>
-
-	<select id="selectEmpByAll" resultType="emp" parameterType="emp">
-		select * from emp
-		where ename=#{ename} and hiredate=#{hiredate} and job=#{job}
-		order by empno
-	</select>
-
-	<select id="selectEmpByLike1" resultType="emp"
-		parameterType="emp">
-		select * from emp
-		where ename like concat('%',#{ename},'%') and job like
-		concat('%',#{job},'%')
-		order by empno
-	</select>
-
-	<select id="selectEmpByCount" resultType="int">
-		select count(*) from emp
-	</select>
-
-	<!-- 多条件不确定模糊查询 -->
-	<select id="selectEmpByLike2" resultType="emp"
-		parameterType="emp">
-		select * from emp
-		<where>
-			<if test="ename!=null and ename!=''">
-				and ename like concat('%',#{ename},'%')
-			</if>
-			<if test="job!=null and job!=''">
-				and job like concat('%',#{job},'%')
-			</if>
-		</where>
-		order by empno
-	</select>
-
-	<insert id="insertEmpBatch" parameterType="java.util.List">
-		insert into emp values
-		<foreach collection="list" item="emp" separator=",">
-			(null,#{emp.ename},#{emp.job},#{emp.hiredate},#{emp.sal},#{emp.deptno})
-		</foreach>
-	</insert>
-
-	<delete id="deleteEmpBatch" parameterType="int">
-		delete from emp where empno in
-		<foreach collection="array" item="empno" separator=","
-			open="(" close=")">
-			#{empno}
-		</foreach>
-	</delete>
-
-	<update id="updateEmpBatch" parameterType="java.util.List">
-		<foreach collection="list" item="emp" separator=";">
-			update emp
-			set ename=#{emp.ename},
-			job=#{emp.job},
-			hiredate=#{emp.hiredate},
-			sal=#{emp.sal},
-			deptno=#{emp.deptno}
-			where empno=#{emp.empno}
-		</foreach>
-	</update>
-
-	<resultMap type="emp" id="empResultMap">
-		<id column="id" property="empno" />
-		<result column="name" property="ename" />
-		<result column="zhiwei" property="job" />
-		<result column="hdate" property="hiredate" />
-		<result column="s" property="sal" />
-		<result column="dno" property="deptno" />
-	</resultMap>
-
-	<!-- 按ID查询（这里演示resultMap的使用） -->
-	<select id="selectEmpById" parameterType="int"
-		resultMap="empResultMap">
-		select empno id,ename name,job zhiwei,hiredate hdate,sal s,deptno dno from
-		emp where empno=#{empno}
-	</select>
-
-	<resultMap type="emp" id="empResultMap2">
-		<id column="empno" property="empno" />
-		<result column="ename" property="ename" />
-		<result column="job" property="job" />
-		<result column="hiredate" property="hiredate" />
-		<result column="sal" property="sal" />
-		<result column="deptno" property="deptno" />
-		<association property="dept" javaType="Dept">
-			<id column="ddeptno" property="deptno" />
-			<result column="ddname" property="dname" />
-			<result column="dloc" property="loc" />
-		</association>
-	</resultMap>
-
-	<select id="selectEmpAll2" resultMap="empResultMap2">
-		select e.*,
-		d.deptno ddeptno,
-		d.dname ddname,
-		d.loc dloc
-		from emp e left join dept d
-		on e.deptno=d.deptno
-		order by empno
-	</select>
-
-	<select id="selectEmpByDeptno" parameterType="int"
-		resultType="emp">
-		select * from emp where deptno <![CDATA[<]]>
-		5
-	</select>
 
 
 </mapper>

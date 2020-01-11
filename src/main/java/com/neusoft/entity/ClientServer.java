@@ -24,9 +24,9 @@ public class ClientServer {
 	//服务处理内容
 	private String serverProcessing;
 	//处理日期
-	private String ProcessingDate;
+	private String processingDate;
 	//处理结果
-	private String ProcessingResult;
+	private String processingResult;
 	//处理结果满意度 1、☆ 2、☆☆ 3、☆☆☆ 4、☆☆☆☆ 5、☆☆☆☆☆
 	private Integer clientContentment;
 
@@ -75,11 +75,11 @@ public class ClientServer {
 	}
 
 	public String getProcessingDate() {
-		return ProcessingDate;
+		return processingDate;
 	}
 
 	public String getProcessingResult() {
-		return ProcessingResult;
+		return processingResult;
 	}
 
 	public Integer getClientContentment() {
@@ -131,11 +131,11 @@ public class ClientServer {
 	}
 
 	public void setProcessingDate(String processingDate) {
-		ProcessingDate = processingDate;
+		this.processingDate = processingDate;
 	}
 
 	public void setProcessingResult(String processingResult) {
-		ProcessingResult = processingResult;
+		this.processingResult = processingResult;
 	}
 
 	public void setClientContentment(Integer clientContentment) {
