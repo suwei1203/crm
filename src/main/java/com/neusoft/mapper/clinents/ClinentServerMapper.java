@@ -3,12 +3,14 @@ package com.neusoft.mapper.clinents;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import com.neusoft.entity.ClientServer;
 
 //服务创建的Mapper（孙开）
+@Repository
 @Mapper
-public interface ServiceCreateMapper {
+public interface ClinentServerMapper {
 	//服务创建界面需要的操作
 	public int insertData(ClientServer cs);
 	
