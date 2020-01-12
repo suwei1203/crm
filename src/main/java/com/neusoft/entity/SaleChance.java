@@ -17,6 +17,7 @@ public class SaleChance {
 	private Integer chanceStatus;
 	private Integer beginNum;
 	private Integer maxPageNum;
+
 		
 	public Integer getChanceId() {
 		return chanceId;
