@@ -22,13 +22,13 @@ public class SaleChancerController {
 	}
 	
 	@RequestMapping("/selectSaleChanceCount")
-	public int selectSaleChanceCount() {
-		return saleChanceService.selectSaleChanceCount();
+	public int selectSaleChanceCount(@RequestBody SaleChance saleChance) {
+		return saleChanceService.selectSaleChanceCount(saleChance);
 	}
 		
-	@RequestMapping("/selectSaleChanceCountByChanceId")
-	public SaleChance selectSaleChanceCountByChanceId(@RequestBody SaleChance saleChance) {
-		return saleChanceService.selectSaleChanceCountByChanceId(saleChance);
+	@RequestMapping("/selectSaleChanceByChanceId")
+	public SaleChance selectSaleChanceByChanceId(@RequestBody SaleChance saleChance) {
+		return saleChanceService.selectSaleChanceByChanceId(saleChance);
 	}
 	
 	@RequestMapping("/updateSaleChance")
@@ -44,6 +44,11 @@ public class SaleChancerController {
 	@RequestMapping("/selectSaleChancePaging")
 	public List<SaleChance> selectSaleChancePaging(@RequestBody SaleChance saleChance){
 		return saleChanceService.selectSaleChancePaging(saleChance);
+	}
+	
+	@RequestMapping("/selectLastChanceId")
+	public int selectLastChanceId(){
+		return saleChanceService.selectLastChanceId();
 	}
 	
 	
