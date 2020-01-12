@@ -21,8 +21,8 @@ public class SaleChanceServiceImpl implements SaleChanceService  {
 	}
 	
 	@Override
-	public int selectSaleChanceCount() {
-		return saleChanceMapper.selectSaleChanceCount();
+	public int selectSaleChanceCount(SaleChance saleChance) {
+		return saleChanceMapper.selectSaleChanceCount(saleChance);
 	}
 	
 	@Override
@@ -31,8 +31,8 @@ public class SaleChanceServiceImpl implements SaleChanceService  {
 	}
 	
 	@Override
-	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance) {
-		return saleChanceMapper.selectSaleChanceCountByChanceId(saleChance);
+	public SaleChance selectSaleChanceByChanceId(SaleChance saleChance) {
+		return saleChanceMapper.selectSaleChanceByChanceId(saleChance);
 	}
 	
 	@Override
@@ -43,6 +43,11 @@ public class SaleChanceServiceImpl implements SaleChanceService  {
 	@Override
 	public List<SaleChance> selectSaleChancePaging(SaleChance saleChance){
 		return saleChanceMapper.selectSaleChancePaging(saleChance);
+	}
+	
+	@Override
+	public int selectLastChanceId() {
+		return saleChanceMapper.selectLastChanceId();
 	}
 	
 	
