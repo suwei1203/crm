@@ -8,13 +8,15 @@ public interface SaleChanceService {
 	
 	public int insertSaleChance(SaleChance saleChance);
 	
-	public int selectSaleChanceCount();	
+	public int selectSaleChanceCount(SaleChance saleChance);	
 	
-	public SaleChance selectSaleChanceCountByChanceId(SaleChance saleChance);
+	public SaleChance selectSaleChanceByChanceId(SaleChance saleChance);
 	
 	public int updateSaleChance(SaleChance saleChance);
 	
 	public int delSaleChance(SaleChance saleChance);
 	
 	public List<SaleChance> selectSaleChancePaging(SaleChance saleChance);
+	
+	public int selectLastChanceId();
 }
