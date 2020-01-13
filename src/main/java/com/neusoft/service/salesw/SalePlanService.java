@@ -10,4 +10,8 @@ public interface SalePlanService {
 	
 	public List<SalePlan> selectSalePlanByPlanChcId(SalePlan SalePlan);
 	
+	public int delSalePlan(SalePlan SalePlan);
+	
+	public int updateSalePlan(SalePlan SalePlan);
+	
 }
