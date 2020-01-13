@@ -13,5 +13,9 @@ public interface SalePlanMapper {
 	
 	//根据销售机会Id查询所属计划
 	public List<SalePlan> selectSalePlanByPlanChcId(SalePlan SalePlan);
+	
+	public int delSalePlan(SalePlan SalePlan);
+	
+	public int updateSalePlan(SalePlan SalePlan);
 
 }
