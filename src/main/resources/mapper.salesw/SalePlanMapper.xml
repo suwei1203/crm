@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mapper.salesw.SalePlanMapper">
+	<insert id="insertSalePlan" parameterType="SalePlan">
+		insert into
+		saleplan
+		values(null,#{planChcId},#{planTodo},#{planResult})
+	</insert>
+	
+	<select id="selectSalePlanByPlanChcId" parameterType="SalePlan" resultType="SalePlan">
+		select * from saleplan where planChcId=#{planChcId}
+	</select>
+</mapper>
+   
