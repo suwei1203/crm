@@ -11,5 +11,13 @@
 	<select id="selectSalePlanByPlanChcId" parameterType="SalePlan" resultType="SalePlan">
 		select * from saleplan where planChcId=#{planChcId}
 	</select>
+	
+	<delete id="delSalePlan" parameterType="SalePlan" >
+		delete from saleplan where planId=#{planId}
+	</delete>
+	
+	<update id="updateSalePlan" parameterType="SalePlan" >
+		update saleplan set planTodo=#{planTodo} where planId=#{planId}
+	</update>
 </mapper>
    
