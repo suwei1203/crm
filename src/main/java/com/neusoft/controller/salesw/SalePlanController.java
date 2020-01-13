@@ -25,5 +25,14 @@ public class SalePlanController {
 	public List<SalePlan> selectSalePlanByPlanChcId(@RequestBody SalePlan SalePlan){
 		return salePlanService.selectSalePlanByPlanChcId(SalePlan);
 	}
-
+	
+	@RequestMapping("/delSalePlan")
+	public int delSalePlan(@RequestBody  SalePlan SalePlan) {
+		return salePlanService.delSalePlan(SalePlan);
+	}
+	
+	@RequestMapping("/updateSalePlan")
+	public int updateSalePlan(@RequestBody SalePlan SalePlan) {
+		return salePlanService.updateSalePlan(SalePlan);
+	}
 }
