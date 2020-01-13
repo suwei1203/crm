@@ -24,5 +24,15 @@ public class SalePlanServiceImpl implements SalePlanService {
 	public List<SalePlan> selectSalePlanByPlanChcId(SalePlan SalePlan){
 		return salePlanMapper.selectSalePlanByPlanChcId(SalePlan);
 	}
+	
+	@Override
+	public int delSalePlan(SalePlan SalePlan) {
+		return salePlanMapper.delSalePlan(SalePlan);
+	}
+	
+	@Override
+	public int updateSalePlan(SalePlan SalePlan) {
+		return salePlanMapper.updateSalePlan(SalePlan);
+	}
 
 }
