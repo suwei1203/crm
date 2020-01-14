@@ -16,7 +16,7 @@ public class ClientLinkman {
 	//备注
 	private String remark;
 	//客户编号
-	private String clientCod;
+	private String clientCode;
 	
 	public Integer getClientLinkmanId() {
 		return clientLinkmanId;
@@ -60,11 +60,11 @@ public class ClientLinkman {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	public String getClientCod() {
-		return clientCod;
+	public String getClientCode() {
+		return clientCode;
 	}
-	public void setClientCod(String clientCod) {
-		this.clientCod = clientCod;
+	public void setClientCode(String clientCode) {
+		this.clientCode = clientCode;
 	}
 	
 	
