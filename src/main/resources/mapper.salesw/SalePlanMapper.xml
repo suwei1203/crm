@@ -17,7 +17,11 @@
 	</delete>
 	
 	<update id="updateSalePlan" parameterType="SalePlan" >
-		update saleplan set planTodo=#{planTodo} where planId=#{planId}
+		update saleplan set planTodo=#{planTodo}
+		<if test="planResult!=null and planResult!=''">
+			,planResult=#{planResult}
+		</if>
+		 where planId=#{planId}
 	</update>
 </mapper>
    
