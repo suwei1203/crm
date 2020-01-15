@@ -15,21 +15,25 @@ public class SalePlanServiceImpl implements SalePlanService {
 	@Autowired
 	SalePlanMapper salePlanMapper;
 	
+	//添加销售计划
 	@Override
 	public int insertSalePlan(SalePlan SalePlan) {
 		return salePlanMapper.insertSalePlan(SalePlan);
 	}
 	
+	//动态条件（销售机会Id或销售计划Id）查询所属计划
 	@Override
-	public List<SalePlan> selectSalePlanByPlanChcId(SalePlan SalePlan){
-		return salePlanMapper.selectSalePlanByPlanChcId(SalePlan);
+	public List<SalePlan> selectSalePlanByCondition(SalePlan SalePlan){
+		return salePlanMapper.selectSalePlanByCondition(SalePlan);
 	}
 	
+	//删除销售计划
 	@Override
 	public int delSalePlan(SalePlan SalePlan) {
 		return salePlanMapper.delSalePlan(SalePlan);
 	}
 	
+	//修改销售计划
 	@Override
 	public int updateSalePlan(SalePlan SalePlan) {
 		return salePlanMapper.updateSalePlan(SalePlan);
