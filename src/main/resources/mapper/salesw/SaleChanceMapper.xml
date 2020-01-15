@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mapper.salesw.SaleChanceMapper">
+	<insert id="insertSaleChance" parameterType="SaleChance">
+		insert into
+		saleChance
+		values(null,#{chanceSource},#{chanceCustName},#{chanceTitle},#{chanceRate},
+		#{chanceLinkman},#{chanceTel},#{chanceDesc},#{chanceCreateId},
+		#{chanceCreateDate},null,null,0)
+	</insert>
+
+	<update id="updateSaleChance" parameterType="SaleChance">
+		update saleChance
+		set chanceSource=#{chanceSource},
+		chanceCustName=#{chanceCustName},
+		chanceTitle=#{chanceTitle},
+		chanceRate=#{chanceRate},
+		chanceLinkman=#{chanceLinkman},
+		chanceTel=#{chanceTel},
+		chanceDesc=#{chanceDesc},
+		chanceDueId=#{chanceDueId},
+		chanceDueDate=#{chanceDueDate},
+		chanceStatus=#{chanceStatus}		
+		where chanceId=#{chanceId}
+	</update>
+
+	<select id="selectSaleChanceCount" parameterType="SaleChance"
+		resultType="int">
+		select count(*) from saleChance where chanceStatus=0
+		<if test="chanceCustName!=null and chanceCustName!=''">
+			and chanceCustName like concat('%',#{chanceCustName},'%')
+		</if>
+		<if test="chanceTitle!=null and chanceTitle!=''">
+			and chanceTitle like concat('%',#{chanceTitle},'%')
+		</if>
+		<if test="chanceLinkman!=null and chanceLinkman!=''">
+			and chanceLinkman like concat('%',#{chanceLinkman},'%')
+		</if>
+		<if test="chanceDueId!=null and chanceDueId!=''">
+			and chanceDueId=#{chanceDueId}
+		</if>
+	</select>
+
+	<select id="selectSaleChancePaging" parameterType="SaleChance"
+		resultType="SaleChance">
+		select * from saleChance where chanceStatus=#{chanceStatus}
+		<if test="chanceCustName!=null and chanceCustName!=''">
+			and chanceCustName like concat('%',#{chanceCustName},'%')
+		</if>
+		<if test="chanceTitle!=null and chanceTitle!=''">
+			and chanceTitle like concat('%',#{chanceTitle},'%')
+		</if>
+		<if test="chanceLinkman!=null and chanceLinkman!=''">
+			and chanceLinkman like concat('%',#{chanceLinkman},'%')
+		</if>
+		order by chanceId desc limit #{beginNum},#{maxPageNum}
+	</select>
+
+
+	<select id="selectLastChanceId" resultType="int">
+		select AUTO_INCREMENT
+		from INFORMATION_SCHEMA.TABLES where TABLE_NAME='SaleChance'
+	</select>
+</mapper>
+   
