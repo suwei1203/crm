@@ -13,4 +13,7 @@ public interface ClientLinkmanService {
 
 	// 查询客户的全部联系人
 	public List<ClientLinkman> selectClientLinkmanAll(Integer clientCode);
+	
+	//添加联系人信息
+	public int insertClientLinkman(ClientLinkman clientLinkman);
 }
