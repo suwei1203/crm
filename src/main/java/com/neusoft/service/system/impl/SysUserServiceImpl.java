@@ -16,11 +16,13 @@ public class SysUserServiceImpl implements SysUserService {
 	@Autowired
 	SysUserMapper sysUserMapper;
 	
+	//根据id 密码查询系统用户
 	@Override
 	public SysUser selectSysUserByuserNameByuserPassword(SysUser sysUser) {
 		return sysUserMapper.selectSysUserByuserNameByuserPassword(sysUser);
 	}
 	
+	//根据条件 userRoleId（用户职责）查询 系统用户
 	@Override
 	public List<SysUser> selectSysUserByCondition(SysUser sysUser){
 		return sysUserMapper.selectSysUserByCondition(sysUser);
