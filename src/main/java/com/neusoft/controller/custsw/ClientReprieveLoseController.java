@@ -12,14 +12,12 @@ import com.neusoft.service.custsw.ClientReprieveLoseService;
 public class ClientReprieveLoseController {
 	@Autowired
 	ClientReprieveLoseService clientReprieveLoseService;
+	
 	@RequestMapping("/insertClientReprieveLose")
 	public int insertClientReprieveLose(ClientReprieveLose clientReprieveLose) {
 		return clientReprieveLoseService.insertClientReprieveLose(clientReprieveLose);
 	}
-	@RequestMapping("/updateClientInfo")
-	public int updateClientInfo(ClientInfo clientinfo) {
-		return clientReprieveLoseService.updateClientInfo(clientinfo);
-	}
+	
 	@RequestMapping("/updateClientLose")
 	public int updateClientLose(ClientInfo clientInfo) {
 		return clientReprieveLoseService.updateClientLose(clientInfo);
