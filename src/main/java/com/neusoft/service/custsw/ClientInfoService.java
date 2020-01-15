@@ -11,4 +11,7 @@ public interface ClientInfoService {
 	public List<ClientInfo> selectClientInfoAll();
 	// 查询六个月没有下订单的客户信息
 	public List<ClientInfo> selectClientInofByOrdersDate();
+	
+	//添加客户信息
+	public int insertClientInfo(ClientInfo clientInfo);
 }
