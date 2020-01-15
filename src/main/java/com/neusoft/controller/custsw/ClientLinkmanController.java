@@ -3,6 +3,7 @@ package com.neusoft.controller.custsw;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.neusoft.entity.ClientLinkman;
@@ -29,5 +30,10 @@ public class ClientLinkmanController {
 	public List<ClientLinkman> selectClientLinkmanAll(Integer clientCode) {
 		return clientLinkmanService.selectClientLinkmanAll(clientCode);
 	}
-
+	
+	//添加联系人信息
+	@RequestMapping("/insertClientLinkman")
+	public int insertClientLinkman(@RequestBody ClientLinkman clientLinkman) {
+		return clientLinkmanService.insertClientLinkman(clientLinkman);
+	}
 }
