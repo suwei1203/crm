@@ -27,7 +27,7 @@
 
 	<select id="selectSaleChanceCount" parameterType="SaleChance"
 		resultType="int">
-		select count(*) from saleChance where chanceStatus=0
+		select count(*) from saleChance where chanceStatus=#{chanceStatus}
 		<if test="chanceCustName!=null and chanceCustName!=''">
 			and chanceCustName like concat('%',#{chanceCustName},'%')
 		</if>
@@ -53,6 +53,9 @@
 		</if>
 		<if test="chanceLinkman!=null and chanceLinkman!=''">
 			and chanceLinkman like concat('%',#{chanceLinkman},'%')
+		</if>
+		<if test="chanceDueId!=null and chanceDueId!=''">
+			and chanceDueId=#{chanceDueId}
 		</if>
 		order by chanceId desc limit #{beginNum},#{maxPageNum}
 	</select>
