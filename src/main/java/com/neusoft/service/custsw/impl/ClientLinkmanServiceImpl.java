@@ -3,11 +3,13 @@ package com.neusoft.service.custsw.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.neusoft.entity.ClientLinkman;
 import com.neusoft.mapper.custsw.ClientLinkmanMapper;
 import com.neusoft.service.custsw.ClientLinkmanService;
 
+@Service
 public class ClientLinkmanServiceImpl implements ClientLinkmanService {
 	@Autowired
 	ClientLinkmanMapper clientLinkmanMapper;
@@ -30,4 +32,9 @@ public class ClientLinkmanServiceImpl implements ClientLinkmanService {
 		return clientLinkmanMapper.selectClientLinkmanAll(clientCode);
 	}
 
+	//添加联系人信息
+	@Override
+	public int insertClientLinkman(ClientLinkman clientLinkman) {
+		return clientLinkmanMapper.insertClientLinkman(clientLinkman);
+	}
 }
