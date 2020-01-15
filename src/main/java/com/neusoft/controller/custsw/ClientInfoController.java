@@ -14,7 +14,7 @@ import com.neusoft.service.custsw.ClientInfoService;
 public class ClientInfoController {
 	@Autowired
 	ClientInfoService clientInfoService;
-
+	
 	// 编辑客户信息,客户经理可以编辑状态为“正常”的客户信息
 	@RequestMapping("/updateClientInfo")
 	public int updateClientInfo(@RequestBody ClientInfo clientInfo) {
@@ -31,5 +31,11 @@ public class ClientInfoController {
 	@RequestMapping("/selectClientInofByOrdersDate")
 	public List<ClientInfo> selectClientInofByOrdersDate() {
 		return clientInfoService.selectClientInofByOrdersDate();
+	}
+	
+	//添加客户信息
+	@RequestMapping("/insertClientInfo")
+	public int insertClientInfo(@RequestBody ClientInfo clientInfo) {
+		return clientInfoService.insertClientInfo(clientInfo);
 	}
 }
