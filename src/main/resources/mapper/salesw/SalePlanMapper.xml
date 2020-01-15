@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.mapper.salesw.SalePlanMapper">
+
+	<insert id="insertSalePlan" parameterType="SalePlan">
+		insert into
+		saleplan
+		values(null,#{planChcId},#{planTodo},#{planResult})
+	</insert>
+	
+	<!-- 动态条件（销售机会Id或销售计划Id）查询所属计划 -->
+	<select id="selectSalePlanByCondition" parameterType="SalePlan" resultType="SalePlan">
+		select * from saleplan 
+		<where>
+		<if test="planChcId!=null and planChcId!=''">
+			planChcId=#{planChcId}
+		</if>
+		<if test="planId!=null and planId!=''">
+			and planId=#{planId}
+		</if>
+		</where>
+	</select>
+	
+	<delete id="delSalePlan" parameterType="SalePlan" >
+		delete from saleplan where planId=#{planId}
+	</delete>
+	
+	<update id="updateSalePlan" parameterType="SalePlan" >
+		update saleplan set planTodo=#{planTodo}
+		<if test="planResult!=null and planResult!=''">
+			,planResult=#{planResult}
+		</if>
+		 where planId=#{planId}
+	</update>
+</mapper>
+   
