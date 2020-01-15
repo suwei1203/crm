@@ -1,11 +1,16 @@
 package com.neusoft.service.custsw.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.neusoft.entity.ClientInfo;
 import com.neusoft.entity.ClientReprieveLose;
 import com.neusoft.mapper.custsw.ClientReprieveLoseMapper;
 import com.neusoft.service.custsw.ClientReprieveLoseService;
 
+@Service
 public class ClientReprieveLoseServiceImpl implements ClientReprieveLoseService {
+	@Autowired
 	ClientReprieveLoseMapper clientReprieveLoseMapper;
 
 	@Override
